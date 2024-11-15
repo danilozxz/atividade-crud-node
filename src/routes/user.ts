@@ -3,7 +3,7 @@ import { createUser, deleteUser, getAllUsers, getUserById, updateUser } from '..
 
 const router = Router();
 
-router.post('/user', async (req, res) => {
+router.post('', async (req, res) => {
     const { name, email } = req.body;
     const user = await createUser(
         {
@@ -18,13 +18,13 @@ router.post('/user', async (req, res) => {
     }
 });
 
-router.get('/users', async (req, res) => {
+router.get('', async (req, res) => {
     const result = await getAllUsers();
     res.json({ result });
 
 });
 
-router.get('/user/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     const { id } = req.params;
 
     const userId = Number(id);
@@ -33,7 +33,7 @@ router.get('/user/:id', async (req, res) => {
 
 });
 
-router.put('/user/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
     const { id } = req.params;
 
     const userId = Number(id);
@@ -41,7 +41,7 @@ router.put('/user/:id', async (req, res) => {
     res.json({ result });
 });
 
-router.delete('/user/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const { id } = req.params;
     const userId = Number(id);
 

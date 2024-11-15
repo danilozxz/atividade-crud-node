@@ -4,7 +4,7 @@ import { Prisma } from "@prisma/client";
 
 const router = Router();
 
-router.post("/post", async (req, res) => {
+router.post('', async (req, res) => {
     const { title, subtitle, body, userId } = req.body;
 
     const postData: Prisma.PostCreateInput = {
@@ -43,7 +43,7 @@ router.get('', async (req, res) => {
     res.json({ result });
 })
 
-router.get('/post/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     const { id } = req.params;
 
     const userId = Number(id);
@@ -52,7 +52,7 @@ router.get('/post/:id', async (req, res) => {
     res.json({ result });
 })
 
-router.put('/post/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
     const { id } = req.params;
     const data: Prisma.PostUpdateInput = req.body;
 
@@ -70,7 +70,7 @@ router.put('/post/:id', async (req, res) => {
     }
 });
 
-router.delete('/post/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const { id } = req.params;
     const postId = Number(id);
 
